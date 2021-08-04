@@ -6,7 +6,6 @@
     "start": "ng serve",
     "build": "ng build",
     "prepare": "npm run build",
-    "build_dashboard": "ng build dashboard",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
