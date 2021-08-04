@@ -1,0 +1,82 @@
+<div  [ngClass]="{'card adf-widget': !widgetEditMode}">
+  <div class="card-header" *ngIf="!widgetEditMode" [hidden]="fullScreenModel">
+    <span>{{widget.title}}</span>
+    <span class="float-right">
+
+      <!-- change widget location -->
+      <a *ngIf="editMode" i18n-title="@@adf.widget.move-widget" title="Move widget" class="adf-move adf-handle-outer">
+        <i class="fas fa-arrows-alt adf-handle"></i>
+      </a>
+      <!-- open edit mode -->
+      <a *ngIf="editMode" i18n-title="@@adf.widget.edit-mode" title="Edit Mode" (click)="toggleEditMode(widgetEditDialogContent)">
+        <i class="fas fa-cog"></i>
+      </a>
+
+      <!-- custom widget functions, provided by implemeting WidgetFunctionProvider -->
+      <a *ngFor="let fn of functions" [title]="fn.title" (click)="executeFunction(fn)">
+        <i [class]="fn.class"></i>
+      </a>
+
+      <a i18n-title="@@adf.widget.reload-widget" title="Reload widget"  (click)="reloadWidget()">
+          <i class="fas fa-sync-alt"></i>
+      </a>
+      <a i18n-title="@@adf.widget.remove-widget" title="Remove widget" *ngIf="!isCollapsed"  (click)="isCollapsed=!isCollapsed">
+          <i class="fas fa-minus"></i>
+      </a>
+      <a i18n-title="@@adf.widget.remove-widget" title="Remove widget" *ngIf="isCollapsed"  (click)="isCollapsed=!isCollapsed">
+          <i class="fas fa-plus"></i>
+      </a>
+      <a  [hidden]="fullScreenModel"   i18n-title="@@adf.widget.edit-mode" title="Fullscreen widget" (click)="toggleFullScreenMode(widgetFullScreenDialogContent)">
+          <i class="fas fa-compress"></i>
+      </a>
+      <!-- remove widget from dashboard -->
+      <a  i18n-title="@@adf.widget.remove-widget" title="Remove widget" (click)="remove()" *ngIf="editMode">
+        <i class="far fa-times-circle"></i>
+      </a>
+    </span>
+  </div>
+  <div [ngClass]="{'card-body': !widgetEditMode}" [ngbCollapse]="isCollapsed">
+
+    <div class="alert alert-warning" *ngIf="error">
+      {{error}}
+    </div>
+    <span #content></span>
+  </div>
+</div>
+
+<ng-template #widgetEditDialogContent let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-edit-title">{{widgetCopy.title}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <adf-widget
+      [widget]="widgetCopy"
+      [attr.adf-id]="widgetCopy.id" [widgetEditMode]="true" ></adf-widget>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="d('Cross click')" i18n="@@adf.widget.close">Close</button>
+    <button type="button" class="btn btn-primary" (click)="c(widgetCopy)">Apply</button>
+
+  </div>
+</ng-template>
+
+
+
+<ng-template #widgetFullScreenDialogContent let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-full-title">{{widget.title}}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <adf-widget
+        [widget]="widget"
+        [attr.adf-id]="widget.id" [widgetEditMode]="false" [fullScreenModel]="true" ></adf-widget>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="d('Cross click')" i18n="@@adf.widget.close">Close</button>
+</div>

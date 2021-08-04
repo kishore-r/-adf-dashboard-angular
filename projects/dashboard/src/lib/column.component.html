@@ -1,0 +1,10 @@
+<div  [attr.adf-id]="column.id"   dragula="HANDLES" [ngClass]="{'column': editMode}" class="adf-coulmn">
+    <!-- render widget of column -->
+    <adf-widget *ngFor="let widget of column.widgets"
+                [widget]="widget"
+                [attr.adf-id]="widget.id"
+                (removeEvent)="remove($event)" [editMode] = "editMode"  >
+    </adf-widget>
+    <!-- render nested rows -->
+    <adf-row *ngFor="let row of column.rows" [model]="model" [row]="row" [editMode] = "editMode" ></adf-row>
+</div>
