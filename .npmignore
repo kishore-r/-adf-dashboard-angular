@@ -3,6 +3,7 @@
 /src/
 /browserslist/
 /node_modules/
+/projects/
 package.json
 angular.json
 karma.conf.js
