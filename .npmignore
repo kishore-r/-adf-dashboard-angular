@@ -1,9 +1,9 @@
 !dist/*
 /e2e/
 /src/
-/browserslist/
 /node_modules/
 /projects/
+browserslist
 package.json
 angular.json
 karma.conf.js
