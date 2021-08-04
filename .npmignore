@@ -1,7 +1,8 @@
-!dist/dashboard*
+!dist/*
 /e2e/
 /src/
 /browserslist/
+/node_modules/
 package.json
 angular.json
 karma.conf.js
