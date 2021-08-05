@@ -5,7 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "prepare": "npm run build",
+    "prepare": "npm run build bundle && npm run copy",
+    "copy": "cp package.json dist/ && cp README.md dist/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
