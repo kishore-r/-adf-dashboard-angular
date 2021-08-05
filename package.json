@@ -13,7 +13,7 @@
   "files": [
         "dist/"
    ],
-  "main": "./dist/bundles/dashboard.umd.js",
+  "main": "./dist/dashboard.d.ts",
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.1.0",
