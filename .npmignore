@@ -1,7 +1,7 @@
-!dist/*
+dist
 /e2e/
 /src/
-/node_modules/
+node_modules
 /projects/
 browserslist
 package.json
