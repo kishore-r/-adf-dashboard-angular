@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "prepare": "npm run build",
+    "buildpackage": "cd dist && npm pack",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
