@@ -20,13 +20,16 @@
     ],
     "paths": {
       "dashboard": [
-        "dist/dashboard"
+        "dist/"
       ],
       "dashboard/*": [
-        "dist/dashboard/*"
+        "dist/*"
       ]
     }
   },
+  "exclude": [
+    "node_modules"
+  ],
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
