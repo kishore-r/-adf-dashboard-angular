@@ -64,7 +64,7 @@
     "fesm5": "dist/fesm5/dashboard.js",
     "fesm2015": "dist/fesm2015/dashboard.js",
     "typings": "dist/dashboard.d.ts",
-    "metadata": "dist/dashboard.metadata.json"
+    "metadata": "dist/dashboard.metadata.json",
     "main": "dist/bundles/dashboard.umd.js"
   }
 }
